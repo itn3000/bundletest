@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackAsTool>true</PackAsTool>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- <PackageReference Include="grpc" Version="2.25.0" /> -->
+    <!-- <PackageReference Include="LibGit2Sharp" Version="0.26.2">
+      <IncludeAssets>Native;Runtime;Compile;</IncludeAssets>
+    </PackageReference> -->
+    <PackageReference Include="PInvoke.User32" Version="0.6.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="hoge.txt" Publish="true" CopyToPublishDirectory="Always" PackagePath="abc/piyo.txt" />
+    <Content Include="dll/lib1.dll">
+      <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Link>runtimes/win-x64/native/lib1.dll</Link>
+    </Content>
+    <!-- <DotNetPublishFiles Include="dll/lib1.dll">
+      <DestinationRelativePath>runtimes/win-x64/native/lib1.dll</DestinationRelativePath>
+    </DotNetPublishFiles>
+    <ResolvedFileToPublish Include="dll/lib1.dll">
+      <RelativePath>runtimes/win-x64/native/lib1.dll</RelativePath>
+    </ResolvedFileToPublish> -->
+  </ItemGroup>
+
+</Project>
