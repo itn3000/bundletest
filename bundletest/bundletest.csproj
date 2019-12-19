@@ -7,19 +7,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- <PackageReference Include="grpc" Version="2.25.0" /> -->
-    <!-- <PackageReference Include="LibGit2Sharp" Version="0.26.2">
-      <IncludeAssets>Native;Runtime;Compile;</IncludeAssets>
-    </PackageReference> -->
+    <PackageReference Include="grpc" Version="2.25.0" />
+    <PackageReference Include="LibGit2Sharp" Version="0.26.2">
+      <!-- <IncludeAssets>Native;Runtime;Compile;</IncludeAssets> -->
+    </PackageReference>
+    <PackageReference Include="LibGit2Sharp.NativeBinaries" Version="2.0.306">
+      <IncludeAssets>All</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="PInvoke.User32" Version="0.6.6" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="hoge.txt" Publish="true" CopyToPublishDirectory="Always" PackagePath="abc/piyo.txt" />
-    <Content Include="dll/lib1.dll">
+    <None Include="hoge.txt" Publish="true" CopyToPublishDirectory="Always" PackagePath="contentFiles/piyo.txt" />
+    <ProjectReference Include="../lib1pkg/lib1pkg.csproj">
+      <IncludeAssets>Native</IncludeAssets>
+    </ProjectReference>
+    <!-- <None Include="dll/lib1.dll" Publish="true" Pack="true">
       <CopyToPublishDirectory>Always</CopyToPublishDirectory>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Link>runtimes/win-x64/native/lib1.dll</Link>
-    </Content>
+      <Link>lib1.dll</Link>
+      <PackagePath>tools/$(TargetFramework)/any/runtimes/win-x64/native/lib1.dll</PackagePath>
+    </None> -->
     <!-- <DotNetPublishFiles Include="dll/lib1.dll">
       <DestinationRelativePath>runtimes/win-x64/native/lib1.dll</DestinationRelativePath>
     </DotNetPublishFiles>

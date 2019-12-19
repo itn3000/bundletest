@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.Build.NoTargets/1.0.88">
+    <PropertyGroup>
+        <TargetFramework>netstandard1.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="lib1.dll" Pack="true">
+            <!-- <Link>runtimes/win-x64/native/lib1.dll</Link> -->
+            <PackagePath>runtimes/win-x64/native/lib1.dll</PackagePath>
+            <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+</Project>
